@@ -79,21 +79,21 @@
 
 
 
-<meta name="description" content="##需求页面上有一排按钮，悬浮在窗口顶端，不随页面滑动而滑动，这一组按钮分别对应的是页面的各个部分，点击按钮，页面定位到对应的位置。">
+<meta name="description" content="需求页面上有一排按钮，悬浮在窗口顶端，不随页面滑动而滑动，这一组按钮分别对应的是页面的各个部分，点击按钮，页面定位到对应的位置。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="页面快速定位到指定位置的几个方法">
 <meta property="og:url" content="https://vera1128.github.io/2019/03/05/页面快速定位到指定位置的几个方法/index.html">
 <meta property="og:site_name" content="许杨杨的个人网站">
-<meta property="og:description" content="##需求页面上有一排按钮，悬浮在窗口顶端，不随页面滑动而滑动，这一组按钮分别对应的是页面的各个部分，点击按钮，页面定位到对应的位置。">
+<meta property="og:description" content="需求页面上有一排按钮，悬浮在窗口顶端，不随页面滑动而滑动，这一组按钮分别对应的是页面的各个部分，点击按钮，页面定位到对应的位置。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://vera1128.github.io/img/页面快速定位到指定位置的几个方法/1.jpeg">
 <meta property="og:image" content="https://vera1128.github.io/img/页面快速定位到指定位置的几个方法/2.jpeg">
 <meta property="og:image" content="https://vera1128.github.io/img/页面快速定位到指定位置的几个方法/3.jpeg">
 <meta property="og:image" content="https://vera1128.github.io/img/页面快速定位到指定位置的几个方法/4.jpeg">
-<meta property="og:updated_time" content="2019-03-05T09:03:31.000Z">
+<meta property="og:updated_time" content="2019-03-05T09:07:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="页面快速定位到指定位置的几个方法">
-<meta name="twitter:description" content="##需求页面上有一排按钮，悬浮在窗口顶端，不随页面滑动而滑动，这一组按钮分别对应的是页面的各个部分，点击按钮，页面定位到对应的位置。">
+<meta name="twitter:description" content="需求页面上有一排按钮，悬浮在窗口顶端，不随页面滑动而滑动，这一组按钮分别对应的是页面的各个部分，点击按钮，页面定位到对应的位置。">
 <meta name="twitter:image" content="https://vera1128.github.io/img/页面快速定位到指定位置的几个方法/1.jpeg">
 
 
@@ -378,7 +378,7 @@
       
 
       
-        <p>##需求<br>页面上有一排按钮，悬浮在窗口顶端，不随页面滑动而滑动，这一组按钮分别对应的是页面的各个部分，点击按钮，页面定位到对应的位置。<br><a id="more"></a></p>
+        <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>页面上有一排按钮，悬浮在窗口顶端，不随页面滑动而滑动，这一组按钮分别对应的是页面的各个部分，点击按钮，页面定位到对应的位置。<br><a id="more"></a></p>
 <h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><p>拿到这个需求，很自然的想到，解决这个最简单的方法是使用锚点（能靠HTML和css解决的，尽量不使用js</p>
 <h2 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h2><p>想到使用锚点事情就比较简单了，借用a标签的href定位，很快就写了一个Demo，<br>完整代码：<a src="https://codepen.io/yangyang1128/pen/gKvdZw">https://codepen.io/yangyang1128/pen/gKvdZw</a><br>关键代码：</p>
 <pre><code>&lt;div id=&quot;content&quot;&gt;
@@ -426,7 +426,7 @@
   left: 0;
 }
 </code></pre><p>这个方法的优点：<br>(一)辅助节点可以绝对定位 不影响布局<br>(二)改变辅助节点的top值 可以实现锚点定位到窗口任意位置<br>最后效果截图：(点击了“锚点2“按钮)<br><img src="/img/页面快速定位到指定位置的几个方法/4.jpeg"></p>
-<p>##坑2<br>正当我美滋滋的交付任务，坐等1h之后的聚餐的时候，PM来找我说，不行，移动端打开的时候，我切换点了几下悬浮的按钮之后，要点很多下返回键才能退出页面。<br>我：对啊因为每点一次按钮就在浏览器记录里面添加一条记录<br>PM：这不行 需要解决掉<br>。。。<br>这是个问题，需要用户点击很多下才能退出页面体验确实不好，如果想要用户点击一次就退出页面，就得始终保持history只有一条记录，但是a标签跳转的话自动往history加一条记录，我也不能对此做什么。<br>。。。<br>这时候不得不使用js了，<br>我盯着锚点看了会儿(实际上看了半小时:) )发现: </p>
+<h2 id="坑2"><a href="#坑2" class="headerlink" title="坑2"></a>坑2</h2><p>正当我美滋滋的交付任务，坐等1h之后的聚餐的时候，PM来找我说，不行，移动端打开的时候，我切换点了几下悬浮的按钮之后，要点很多下返回键才能退出页面。<br>我：对啊因为每点一次按钮就在浏览器记录里面添加一条记录<br>PM：这不行 需要解决掉<br>。。。<br>这是个问题，需要用户点击很多下才能退出页面体验确实不好，如果想要用户点击一次就退出页面，就得始终保持history只有一条记录，但是a标签跳转的话自动往history加一条记录，我也不能对此做什么。<br>。。。<br>这时候不得不使用js了，<br>我盯着锚点看了会儿(实际上看了半小时:) )发现: </p>
 <pre><code>例如http://shili.com/Demo.html#content1 这样的url，是可以直接定位到http://shili.com/Demo.html 这个页面的id为content1的节点处的，这样的话，我不使用a标签，直接使用js去动态改变url后面的#id 的id，也可以实现定位的效果，并且还能实现浏览器只保存一条记录。
 </code></pre><p>完整代码：<a href="https://codepen.io/yangyang1128/pen/yEvQPe" target="_blank" rel="noopener">https://codepen.io/yangyang1128/pen/yEvQPe</a><br>关键代码：</p>
 <pre><code>去除a标签，改为使用div，并添加click：
@@ -630,7 +630,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#需求分析"><span class="nav-number">1.</span> <span class="nav-text">需求分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解法"><span class="nav-number">2.</span> <span class="nav-text">解法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#坑1"><span class="nav-number">3.</span> <span class="nav-text">坑1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么使a标签的锚点定位到窗口的任意位置"><span class="nav-number">3.1.</span> <span class="nav-text">怎么使a标签的锚点定位到窗口的任意位置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法1："><span class="nav-number">3.1.1.</span> <span class="nav-text">方法1：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法二"><span class="nav-number">3.1.2.</span> <span class="nav-text">方法二</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#需求"><span class="nav-number">1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需求分析"><span class="nav-number">2.</span> <span class="nav-text">需求分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解法"><span class="nav-number">3.</span> <span class="nav-text">解法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#坑1"><span class="nav-number">4.</span> <span class="nav-text">坑1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么使a标签的锚点定位到窗口的任意位置"><span class="nav-number">4.1.</span> <span class="nav-text">怎么使a标签的锚点定位到窗口的任意位置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法1："><span class="nav-number">4.1.1.</span> <span class="nav-text">方法1：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法二"><span class="nav-number">4.1.2.</span> <span class="nav-text">方法二</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#坑2"><span class="nav-number">5.</span> <span class="nav-text">坑2</span></a></li></ol></div>
             
 
           </div>
