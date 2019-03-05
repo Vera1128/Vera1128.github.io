@@ -90,7 +90,7 @@
 <meta property="og:image" content="https://vera1128.github.io/img/页面快速定位到指定位置的几个方法/2.jpeg">
 <meta property="og:image" content="https://vera1128.github.io/img/页面快速定位到指定位置的几个方法/3.jpeg">
 <meta property="og:image" content="https://vera1128.github.io/img/页面快速定位到指定位置的几个方法/4.jpeg">
-<meta property="og:updated_time" content="2019-03-05T09:07:24.000Z">
+<meta property="og:updated_time" content="2019-03-05T09:10:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="页面快速定位到指定位置的几个方法">
 <meta name="twitter:description" content="需求页面上有一排按钮，悬浮在窗口顶端，不随页面滑动而滑动，这一组按钮分别对应的是页面的各个部分，点击按钮，页面定位到对应的位置。">
@@ -441,7 +441,8 @@
   }
 </code></pre><p>至此，需求就完成了。<br>但是就页面定位到指定位置其实还有更好的办法，就是使用js去获取指定位置的offsetTop，这样的话还可以加滑动动画，使定位的这个过程比较平滑。我没有使用这个方法是因为，一我开始就一心想使用锚点结果只能遇坑填坑，二我的页面中有很多折叠的部分（类似于手风琴效果），所以每次的offsetTop都可能是不一样的，点击时都需要去获取offsetTop的值再移动，比较麻烦而且耗性能。（emmm虽然我一开始就抗拒使用js去解决，最后还是使用了，但是抉择之下还是使用性能消耗小的比较好<br>这里也丢一下采用上面这个方法的关键代码</p>
 <pre><code>document.getElementById(&apos;content&apos;).scrollTop = document.getElementById(anchorId).offsetTop - 100;
-</code></pre>
+</code></pre><p><strong>注：</strong><br>此文于2018-06-20发表于技术专栏<em><code>LetCodeFly</code></em>，参考链接：<a href="https://segmentfault.com/a/1190000015338047" target="_blank" rel="noopener">页面快速定位到指定位置的几个方法</a></p>
+
       
     </div>
     
