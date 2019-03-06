@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="需求描述接到的原始需求是这样的，有一个H5页面，页面中有个“点击下载”的按钮，点击之后，完成下载特定的apk。大概是下面这样的👇： 需求分析接到需求的时候我偷乐了一下，这个H5页面最大的优点是不在微信中使用（微信好坑，各种限制，基本上从微信浏览器里面实现直接下载apk是不太可能的），如果是在平常的浏览器的话，就简单多了。 功能实现于是我想到了第一种，点击下载按钮的时候改变location.hre">
+<meta name="description" content="需求描述接到的原始需求是这样的，有一个H5页面，页面中有个“点击下载”的按钮，点击之后，完成下载特定的apk。大概是下面这样的👇：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="H5页面实现下载文件（apk、txt等）的三种方式">
 <meta property="og:url" content="https://vera1128.github.io/2019/03/06/H5页面实现下载文件（apk、txt等）的三种方式/index.html">
 <meta property="og:site_name" content="许杨杨的个人网站">
-<meta property="og:description" content="需求描述接到的原始需求是这样的，有一个H5页面，页面中有个“点击下载”的按钮，点击之后，完成下载特定的apk。大概是下面这样的👇： 需求分析接到需求的时候我偷乐了一下，这个H5页面最大的优点是不在微信中使用（微信好坑，各种限制，基本上从微信浏览器里面实现直接下载apk是不太可能的），如果是在平常的浏览器的话，就简单多了。 功能实现于是我想到了第一种，点击下载按钮的时候改变location.hre">
+<meta property="og:description" content="需求描述接到的原始需求是这样的，有一个H5页面，页面中有个“点击下载”的按钮，点击之后，完成下载特定的apk。大概是下面这样的👇：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://vera1128.github.io/img/H5页面实现下载文件（apk、txt等）的三种方式/1.png">
 <meta property="og:image" content="https://vera1128.github.io/img/H5页面实现下载文件（apk、txt等）的三种方式/2.png">
-<meta property="og:updated_time" content="2019-03-06T10:08:27.000Z">
+<meta property="og:updated_time" content="2019-03-06T10:15:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="H5页面实现下载文件（apk、txt等）的三种方式">
-<meta name="twitter:description" content="需求描述接到的原始需求是这样的，有一个H5页面，页面中有个“点击下载”的按钮，点击之后，完成下载特定的apk。大概是下面这样的👇： 需求分析接到需求的时候我偷乐了一下，这个H5页面最大的优点是不在微信中使用（微信好坑，各种限制，基本上从微信浏览器里面实现直接下载apk是不太可能的），如果是在平常的浏览器的话，就简单多了。 功能实现于是我想到了第一种，点击下载按钮的时候改变location.hre">
+<meta name="twitter:description" content="需求描述接到的原始需求是这样的，有一个H5页面，页面中有个“点击下载”的按钮，点击之后，完成下载特定的apk。大概是下面这样的👇：">
 <meta name="twitter:image" content="https://vera1128.github.io/img/H5页面实现下载文件（apk、txt等）的三种方式/1.png">
 
 
@@ -376,7 +376,7 @@
       
 
       
-        <h2 id="需求描述"><a href="#需求描述" class="headerlink" title="需求描述"></a>需求描述</h2><p>接到的原始需求是这样的，有一个H5页面，页面中有个“点击下载”的按钮，点击之后，完成下载特定的apk。<br>大概是下面这样的👇：<br><img src="/img/H5页面实现下载文件（apk、txt等）的三种方式/1.png"></p>
+        <h2 id="需求描述"><a href="#需求描述" class="headerlink" title="需求描述"></a>需求描述</h2><p>接到的原始需求是这样的，有一个H5页面，页面中有个“点击下载”的按钮，点击之后，完成下载特定的apk。<br>大概是下面这样的👇：<br><img src="/img/H5页面实现下载文件（apk、txt等）的三种方式/1.png"><br><a id="more"></a></p>
 <h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><p>接到需求的时候我偷乐了一下，这个H5页面最大的优点是不在微信中使用（微信好坑，各种限制，基本上从微信浏览器里面实现直接下载apk是不太可能的），如果是在平常的浏览器的话，就简单多了。</p>
 <h2 id="功能实现"><a href="#功能实现" class="headerlink" title="功能实现"></a>功能实现</h2><p>于是我想到了第一种，点击下载按钮的时候改变location.href。</p>
 <h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 我随便找了个apk的下载链接举个例子</span><br><span class="line">window.location.href = &apos;http://imtt.dd.qq.com/16891/26747DD8B125A8479AD0C9D22CA47BC9.apk?fsname=com.snda.wifilocating_4.2.91_3211.apk&amp;csr=1bbd&apos;;</span><br></pre></td></tr></table></figure>
