@@ -274,6 +274,171 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://vera1128.github.io/2019/03/06/手机浏览器自动播放视频video（设置autplay无效）的解决方案/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xuyangyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="许杨杨的个人网站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/06/手机浏览器自动播放视频video（设置autplay无效）的解决方案/" itemprop="url">手机浏览器自动播放视频video（设置autplay无效）的解决方案</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-06T18:24:19+08:00">
+                2019-03-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术分享/" itemprop="url" rel="index">
+                    <span itemprop="name">技术分享</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/06/手机浏览器自动播放视频video（设置autplay无效）的解决方案/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/06/手机浏览器自动播放视频video（设置autplay无效）的解决方案/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1、问题的提出"><a href="#1、问题的提出" class="headerlink" title="1、问题的提出"></a>1、问题的提出</h2><p>某一天接了个需求，需要在手机的H5页面内加入视频，我开开心心做完，准备交付的时候，问题来了，PM想要用户一进入页面，视频就开始播放，不需要用户手动点击。</p>
+<h2 id="2、尝试解决"><a href="#2、尝试解决" class="headerlink" title="2、尝试解决"></a>2、尝试解决</h2><h3 id="加autoplay"><a href="#加autoplay" class="headerlink" title="加autoplay"></a>加autoplay</h3><p>“视频自动播放”这个需求是ok的，那我就在video标签上加个autoplay属性嘛，在PC端浏览器里面试了一下，运行流畅，没有遇到什么问题，但是放在手机浏览器里面打开，就跟没设置autoplay是一样的。</p>
+<h3 id="监听canplay"><a href="#监听canplay" class="headerlink" title="监听canplay"></a>监听canplay</h3><p>那不行的话，我在页面加载完成的时候，监听video的canplay，然后执行play()，应该可以运行了吧？然而放到手机里一看，还是不行。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;video id=&quot;video&quot; src=&quot;video.mp4&quot; controls&gt;&lt;/video&gt;</span><br><span class="line">var video = document.querySelector(&apos;#video&apos;);</span><br><span class="line">video.addEventListener(&apos;canplay&apos;, function () &#123;</span><br><span class="line">   video.play();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="3、思考"><a href="#3、思考" class="headerlink" title="3、思考"></a>3、思考</h2><p>问题来了，加autoplay不行，可以理解，可能手机浏览器不支持这个属性吧，但是我监听视频加载完成，手动去play()，这是程序常规方法，为什么也不行？<br>我尝试在监听回调里面加了个alert,发现没有弹出框。<br>所以我很长一段时间认为，手机浏览器无法自动播放视频，是因为内存大小的限制，导致无法监听video的加载完成。</p>
+<h2 id="4、解决方案"><a href="#4、解决方案" class="headerlink" title="4、解决方案"></a>4、解决方案</h2><h3 id="方案1-使用弹框"><a href="#方案1-使用弹框" class="headerlink" title="方案1 使用弹框"></a>方案1 使用弹框</h3><p>昨天在segment上游荡，发现了原来现在的手机浏览器是不允许网页中视频自动播放的，只有与用户进行了一次交互动作，才可以播放视频。（音频同理，这里就不重复提）<br>我尝试了一下，在页面上加一个弹框，用户点击了弹框之后(相当于一次交互完成)，开始播放视频，发现是可以播放的，部分代码如下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;meta name=&quot;viewport&quot;</span><br><span class="line">        content=&quot;initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, width=device-width&quot;&gt;</span><br><span class="line">  &lt;title&gt;视频自动播放&lt;/title&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">    html, body &#123;</span><br><span class="line">      width: 100%;</span><br><span class="line">      height: 100%;</span><br><span class="line">    &#125;</span><br><span class="line">    .video-container &#123;</span><br><span class="line">      width: 300px;</span><br><span class="line">      height: 600px;</span><br><span class="line">      display: flex;</span><br><span class="line">      flex-direction: column;</span><br><span class="line">      justify-content: center;</span><br><span class="line">      align-items: center;</span><br><span class="line">      overflow: hidden;</span><br><span class="line">      margin: 0 auto;</span><br><span class="line">    &#125;</span><br><span class="line">    #video &#123;</span><br><span class="line">      display: block;</span><br><span class="line">      width: 100%;</span><br><span class="line">    &#125;</span><br><span class="line">    #mask &#123;</span><br><span class="line">      width: 100%;</span><br><span class="line">      height: 100%;</span><br><span class="line">      background: rgba(0, 0, 0, 0.83);</span><br><span class="line">      position: absolute;</span><br><span class="line">      top: 0;</span><br><span class="line">      left: 0;</span><br><span class="line">      z-index: 2;</span><br><span class="line">      display: flex;</span><br><span class="line">      flex-direction: row;</span><br><span class="line">      justify-content: center;</span><br><span class="line">      align-items: center;</span><br><span class="line">    &#125;</span><br><span class="line">    .pop-container &#123;</span><br><span class="line">      width: 250px;</span><br><span class="line">      height: 200px;</span><br><span class="line">      background: white;</span><br><span class="line">      border-radius: 5px;</span><br><span class="line">      display: flex;</span><br><span class="line">      flex-direction: column;</span><br><span class="line">      align-items: center;</span><br><span class="line">      justify-content: center;</span><br><span class="line">    &#125;</span><br><span class="line">    button &#123;</span><br><span class="line">      width: 50px;</span><br><span class="line">      height: 30px;</span><br><span class="line">      border-radius: 4px;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;video-container&quot;&gt;</span><br><span class="line">  &lt;video id=&quot;video&quot; src=&quot;video.mp4&quot;&gt;&lt;/video&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;mask&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;pop-container&quot;&gt;</span><br><span class="line">    &lt;p&gt;页面内有自动播放视频 请注意流量&lt;/p&gt;</span><br><span class="line">    &lt;button onclick=&quot;playVideo()&quot;&gt;我知道了&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  function playVideo() &#123;</span><br><span class="line">    document.getElementById(&apos;mask&apos;).style.display = &apos;none&apos;;</span><br><span class="line">    var video = document.querySelector(&apos;#video&apos;);</span><br><span class="line">    video.play();</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>所以解决视频自动播放的一般做法是，在页面加载的时候弹框与用户产生交互，然后才能开始自动播放(如此看来，手机浏览器是真的很重视用户的流量了。）</p>
+<h3 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h3><p>按照上面的方法，只要想要在手机端页面中实现 进入页面，视频立即自动播放，就必须要借助一个额外的动作去引导与用户发生一次交互，那岂不是很丑，有没有办法是可以不借助弹框呢？答案是 有的。</p>
+<h3 id="方案2-使用jsmpeg-js"><a href="#方案2-使用jsmpeg-js" class="headerlink" title="方案2 使用jsmpeg.js"></a>方案2 使用jsmpeg.js</h3><p>jsmpeg是一款视频解码器，具体怎么用，可以百度相关文档，实话说我对此也不熟悉，第一次听见的时候是听说jsmpeg可以实现网页端的视频直播功能，这一次用来解决视频自动播放的需求也是借鉴别人的想法。<br>关键代码如下：（前提：项目中已经引入了jsmpeg.min.js）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;canvas id=&quot;canvas&quot; height=&quot;750&quot; width=&quot;750&quot;&gt;&lt;/canvas&gt;</span><br><span class="line"></span><br><span class="line">页面加载完成的时候执行下面的js代码：</span><br><span class="line">var canvas = document.querySelector(&apos;#canvas&apos;);</span><br><span class="line">// 注意这里需要将video.mp4转换成ts格式的文件 才能生效</span><br><span class="line">var player = new JSMpeg.Player(&apos;video.ts&apos;, &#123; canvas: canvas, loop: false, autoplay: false, audio: true &#125;);</span><br><span class="line">player.audioOut.unlock(this.onUnlocked);</span><br><span class="line">player.play();</span><br><span class="line"></span><br><span class="line">//  onUnlocked方法</span><br><span class="line">function onUnlocked() &#123;</span><br><span class="line">    player.volume = 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样即使不跟用户产生交互 视频也能自动播放了，<br><strong><em>注意点</em></strong><br>1.demo必须放在服务器上面跑才能正常加载ts文件，如果是在本地的话，不能直接拖进浏览器运行，需要起个本地服务器<br>2.ts文件编码方式必须为MPEG编码，考虑到现在先进的ts编码方式是H.264了，之前用H.264编码的ts发现播放不了<br><strong><em>存在的问题</em></strong><br>1.这样播出的视频是没有声音的<br>附参考链接：<a href="https://www.cnblogs.com/luoeeyang/p/7524824.html" target="_blank" rel="noopener">微信Android自动播放视频（可交互，设置层级，无控制条，非X5）ffmpeg,jsmpeg.js,.ts视频</a></p>
+<h2 id="5、补充"><a href="#5、补充" class="headerlink" title="5、补充"></a>5、补充</h2><p>1.虽然最后不管通过什么方法，算是实现了视频自动播放的需求，但是在真正播放的示例中，你会发现，使用video标签的时候，虽然设置了视频的宽高，但是不起作用，所以需要在video中使用下面的属性</p>
+<p><video id="video" src="" controls webkit-playsinline="webkit-playsinline" playsinline=""></video><br>这样就可以在固定区域播放视频了。<br>2.借助方案1的思路，其实可以实现用户上传视频时的预览<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;file&quot; id=&quot;filepicker&quot; accept=&quot;video/mp4&quot; onchange=&quot;chooseVideoInput()&quot;&gt;</span><br><span class="line">&lt;div class=&quot;video-container&quot;&gt;</span><br><span class="line">  &lt;video id=&quot;video&quot; src=&quot;&quot; controls webkit-playsinline=&quot;webkit-playsinline&quot; playsinline&gt;&lt;/video&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  function chooseVideoInput() &#123;</span><br><span class="line">    var files = document.getElementById(&apos;filepicker&apos;).files[0];</span><br><span class="line">    var video = document.getElementById(&apos;video&apos;);</span><br><span class="line">    // 注意下面3行代码</span><br><span class="line">    var url = URL.createObjectURL(files);</span><br><span class="line">    video.src = url;</span><br><span class="line">    video.play();</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>3.将mp4转换成jsmpeg可播放的ts文件的方法<br>mac os下安装homebrew,之后使用brew install jsmpeg，运行下面命令：ffmpeg -i in.mp4 -f mpegts -codec:v mpeg1video -codec:a mp2 -b 0 out.ts (其中in.mp4和out.ts填写原视频的路径以及转出ts的路径)，亲测有效</p>
+<h2 id="6、总结"><a href="#6、总结" class="headerlink" title="6、总结"></a>6、总结</h2><p>其实关于浏览器video的问题困扰了我很久，昨日在segment上浏览到“chrome66 禁止自动播放后，有什么比较好的方法实现audio的自动播放吗”这样一个提问的时候，进去看到回答，突然想起video是不是也是一样的情况，今天看了下，果然是类似的，解了很久的疑问，所以勉励自己一定要善于发现并举一反三。<br>上面提到的不论是解决方案或者说补充的，大概能解决一大半手机浏览器视频相关的问题，剩下的问题有机会再补充。</p>
+<p>参考链接：<br><a href="https://segmentfault.com/q/1010000016921847?_ea=4999257" target="_blank" rel="noopener">chrome66 禁止自动播放后，有什么比较好的方法实现audio的自动播放吗</a><br><a href="https://www.cnblogs.com/luoeeyang/p/7524824.html" target="_blank" rel="noopener">微信Android自动播放视频（可交互，设置层级，无控制条，非X5）ffmpeg,jsmpeg.js,.ts视频</a><br><a href="https://blog.csdn.net/nxjbill/article/details/77005870" target="_blank" rel="noopener">mac osx 下 homebrew安装</a><br><a href="https://blog.csdn.net/renfujiang/article/details/54579881" target="_blank" rel="noopener">mac 系统安装使用 ffmpeg</a><br><a href="https://www.cnblogs.com/zhusheng2008/p/5529439.html" target="_blank" rel="noopener">HTML5音视频播放(Video,Audio)和常见的坑处理</a><br><a href="https://segmentfault.com/a/1190000014096837" target="_blank" rel="noopener">video在微信和QQ浏览器中不全屏播放解决</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://vera1128.github.io/2019/03/06/H5页面实现下载文件（apk、txt等）的三种方式/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1379,7 +1544,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

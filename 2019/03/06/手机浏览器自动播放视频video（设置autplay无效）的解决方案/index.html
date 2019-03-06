@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="图片跨域问题的一般解决方法注：此文2018-04-19发表于个人技术专栏LetCodeFly指路：canvas图片绘制跨域问题解决方案Tainted canvases may not be exported.当使用canvas绘制网络图片的时候，经常会出现“Tainted canvases may not be exported”报错，上网搜一下解决方案，应该给的都是给img添加crossOrig">
+<meta name="description" content="1、问题的提出某一天接了个需求，需要在手机的H5页面内加入视频，我开开心心做完，准备交付的时候，问题来了，PM想要用户一进入页面，视频就开始播放，不需要用户手动点击。 2、尝试解决加autoplay“视频自动播放”这个需求是ok的，那我就在video标签上加个autoplay属性嘛，在PC端浏览器里面试了一下，运行流畅，没有遇到什么问题，但是放在手机浏览器里面打开，就跟没设置autoplay是一样">
 <meta property="og:type" content="article">
-<meta property="og:title" content="canvas图片绘制跨域问题解决方案黑科技版">
-<meta property="og:url" content="https://vera1128.github.io/2019/03/04/canvas图片绘制跨域问题解决方案黑科技版/index.html">
+<meta property="og:title" content="手机浏览器自动播放视频video（设置autplay无效）的解决方案">
+<meta property="og:url" content="https://vera1128.github.io/2019/03/06/手机浏览器自动播放视频video（设置autplay无效）的解决方案/index.html">
 <meta property="og:site_name" content="许杨杨的个人网站">
-<meta property="og:description" content="图片跨域问题的一般解决方法注：此文2018-04-19发表于个人技术专栏LetCodeFly指路：canvas图片绘制跨域问题解决方案Tainted canvases may not be exported.当使用canvas绘制网络图片的时候，经常会出现“Tainted canvases may not be exported”报错，上网搜一下解决方案，应该给的都是给img添加crossOrig">
+<meta property="og:description" content="1、问题的提出某一天接了个需求，需要在手机的H5页面内加入视频，我开开心心做完，准备交付的时候，问题来了，PM想要用户一进入页面，视频就开始播放，不需要用户手动点击。 2、尝试解决加autoplay“视频自动播放”这个需求是ok的，那我就在video标签上加个autoplay属性嘛，在PC端浏览器里面试了一下，运行流畅，没有遇到什么问题，但是放在手机浏览器里面打开，就跟没设置autoplay是一样">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-04T11:00:33.000Z">
+<meta property="og:updated_time" content="2019-03-06T10:31:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="canvas图片绘制跨域问题解决方案黑科技版">
-<meta name="twitter:description" content="图片跨域问题的一般解决方法注：此文2018-04-19发表于个人技术专栏LetCodeFly指路：canvas图片绘制跨域问题解决方案Tainted canvases may not be exported.当使用canvas绘制网络图片的时候，经常会出现“Tainted canvases may not be exported”报错，上网搜一下解决方案，应该给的都是给img添加crossOrig">
+<meta name="twitter:title" content="手机浏览器自动播放视频video（设置autplay无效）的解决方案">
+<meta name="twitter:description" content="1、问题的提出某一天接了个需求，需要在手机的H5页面内加入视频，我开开心心做完，准备交付的时候，问题来了，PM想要用户一进入页面，视频就开始播放，不需要用户手动点击。 2、尝试解决加autoplay“视频自动播放”这个需求是ok的，那我就在video标签上加个autoplay属性嘛，在PC端浏览器里面试了一下，运行流畅，没有遇到什么问题，但是放在手机浏览器里面打开，就跟没设置autoplay是一样">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://vera1128.github.io/2019/03/04/canvas图片绘制跨域问题解决方案黑科技版/">
+  <link rel="canonical" href="https://vera1128.github.io/2019/03/06/手机浏览器自动播放视频video（设置autplay无效）的解决方案/">
 
 
 
 
 
-  <title>canvas图片绘制跨域问题解决方案黑科技版 | 许杨杨的个人网站</title>
+  <title>手机浏览器自动播放视频video（设置autplay无效）的解决方案 | 许杨杨的个人网站</title>
   
 
 
@@ -274,7 +274,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://vera1128.github.io/2019/03/04/canvas图片绘制跨域问题解决方案黑科技版/">
+    <link itemprop="mainEntityOfPage" href="https://vera1128.github.io/2019/03/06/手机浏览器自动播放视频video（设置autplay无效）的解决方案/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xuyangyang">
@@ -291,7 +291,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">canvas图片绘制跨域问题解决方案黑科技版</h1>
+          <h1 class="post-title" itemprop="name headline">手机浏览器自动播放视频video（设置autplay无效）的解决方案</h1>
         
 
         <div class="post-meta">
@@ -303,8 +303,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-04T00:23:28+08:00">
-                2019-03-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-06T18:24:19+08:00">
+                2019-03-06
               </time>
             
 
@@ -344,8 +344,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/03/04/canvas图片绘制跨域问题解决方案黑科技版/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/04/canvas图片绘制跨域问题解决方案黑科技版/" itemprop="commentCount"></span>
+                <a href="/2019/03/06/手机浏览器自动播放视频video（设置autplay无效）的解决方案/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/06/手机浏览器自动播放视频video（设置autplay无效）的解决方案/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -373,11 +373,20 @@
       
 
       
-        <h2 id="图片跨域问题的一般解决方法"><a href="#图片跨域问题的一般解决方法" class="headerlink" title="图片跨域问题的一般解决方法"></a>图片跨域问题的一般解决方法</h2><p>注：此文2018-04-19发表于个人技术专栏<em><code>LetCodeFly</code></em><br>指路：<a href="https://segmentfault.com/a/1190000014478087" target="_blank" rel="noopener">canvas图片绘制跨域问题解决方案Tainted canvases may not be exported.</a><br>当使用canvas绘制网络图片的时候，经常会出现“Tainted canvases may not be exported”报错，上网搜一下解决方案，应该给的都是给img添加crossOrigin属性，尝试了一下，确实可用。<br>看下面的一个例子：<br><a id="more"></a><br>html代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;canvas id=&quot;canvas&quot; style=&quot;display: none&quot;&gt;&lt;/canvas&gt;</span><br><span class="line">&lt;img id=&quot;canvasImg&quot; /&gt;</span><br></pre></td></tr></table></figure></p>
-<p>javascript代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var img = new Image();</span><br><span class="line">img.setAttribute(&apos;crossOrigin&apos;, &apos;anonymous&apos;);</span><br><span class="line">var canvas = document.getElementById(&quot;canvas&quot;);</span><br><span class="line">var ctx = canvas.getContext(&apos;2d&apos;);</span><br><span class="line">img.onload = function () &#123;</span><br><span class="line">    canvas.width = img.width;</span><br><span class="line">	canvas.height = img.height + 200;</span><br><span class="line">    ctx.drawImage(img, 0, 0);</span><br><span class="line">  	document.getElementById(&apos;canvasImg&apos;).src = canvas.toDataURL(&quot;image/jpeg&quot;, 1);</span><br><span class="line">    &#125;</span><br><span class="line">img.src = &apos;http://img.hb.aicdn.com/38d8f519b3f464a80d85ed9632fed904ed0181f41d632-ZHrigO_fw658&apos;;</span><br></pre></td></tr></table></figure></p>
-<p>这样就可以正常画出图片了。</p>
-<h2 id="微信图片的问题"><a href="#微信图片的问题" class="headerlink" title="微信图片的问题"></a>微信图片的问题</h2><p>但是我发现这个方法用于绘制微信头像的时候有概率会出现问题，当然了这里面指的是将图片的网络地址直接赋值给图片的src。【之所以说有概率会出现问题是因为我通过上面的方法去完成需求的时候并没有画出头像（微信头像放在wx.qlogo.cn域名下，然而我今天准备写这篇文章的时候突然就可以了，见鬼<br>当时的时候我们找了很多方法，发现，在头像url后面加上时间戳的话就可以了【emmm神操作<br>即：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">img.src = &apos;http://wx.qlogo.cn/mmopen/vi_32/RnLIHfXibgFHlticiclzflpriaLsC3TS9b2Sbj05Wh3vGlhcFutt18dfkXGUt8x11e4q2KHlX4EHHaBb6XylLQW1kQ/0?timeStamp=&apos;+new Date();</span><br></pre></td></tr></table></figure></p>
-<h2 id="其他的解法"><a href="#其他的解法" class="headerlink" title="其他的解法"></a>其他的解法</h2><p>今天找了个新的方法去解决canvas图片跨域的问题：<br>将文件读入到blob文件对象，然后使用URL.createObjectURL转换成src可用的地址<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">//直接读成blob文件对象</span><br><span class="line"><span class="keyword">function</span> getImageBlob (url, cb) &#123;</span><br><span class="line">   var xhr = new XMLHttpRequest();</span><br><span class="line">   xhr.open(<span class="string">'get'</span>, url, <span class="literal">true</span>);</span><br><span class="line">   xhr.responseType = <span class="string">'blob'</span>;</span><br><span class="line">   xhr.onload = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">     <span class="keyword">if</span> (this.status == 200) &#123;</span><br><span class="line">       imgResponse = this.response;</span><br><span class="line">       //这里面可以直接通过URL的api将其转换，然后赋值给img.src</span><br><span class="line">       //也可以使用下面的preView方法将其转换成base64之后再赋值</span><br><span class="line">       img.src = URL.createObjectURL(this.response);</span><br><span class="line">     &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    xhr.send();</span><br><span class="line">  &#125;</span><br><span class="line">  //这里面将blob转换成base64</span><br><span class="line">  <span class="keyword">function</span> preView (url) &#123;</span><br><span class="line">    <span class="built_in">let</span> reader = new FileReader();</span><br><span class="line">    getImageBlob(url, <span class="keyword">function</span> (blob) &#123;</span><br><span class="line">       reader.readAsDataURL(blob);</span><br><span class="line">    &#125;);</span><br><span class="line">    reader.onload = <span class="keyword">function</span> (e) &#123;</span><br><span class="line">      console.log(e.loaded)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  img.onload = <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">    canvas.width = img.width;</span><br><span class="line">	canvas.height = img.height + 200;</span><br><span class="line">    ctx.drawImage(img, 0, 0);</span><br><span class="line">	document.getElementById(<span class="string">'canvasImg'</span>).src = canvas.toDataURL(<span class="string">"image/jpeg"</span>, 1);</span><br><span class="line">  &#125;</span><br><span class="line">  var imgResponse = <span class="string">''</span>;</span><br><span class="line"> getImageBlob(<span class="string">'http://wx.qlogo.cn/mmopen/vi_32/RnLIHfXibgFHlticiclzflpriaLsC3TS9b2Sbj05Wh3vGlhcFutt18dfkXGUt8x11e4q2KHlX4EHHaBb6XylLQW1kQ/0'</span>);</span><br></pre></td></tr></table></figure></p>
+        <h2 id="1、问题的提出"><a href="#1、问题的提出" class="headerlink" title="1、问题的提出"></a>1、问题的提出</h2><p>某一天接了个需求，需要在手机的H5页面内加入视频，我开开心心做完，准备交付的时候，问题来了，PM想要用户一进入页面，视频就开始播放，不需要用户手动点击。</p>
+<h2 id="2、尝试解决"><a href="#2、尝试解决" class="headerlink" title="2、尝试解决"></a>2、尝试解决</h2><h3 id="加autoplay"><a href="#加autoplay" class="headerlink" title="加autoplay"></a>加autoplay</h3><p>“视频自动播放”这个需求是ok的，那我就在video标签上加个autoplay属性嘛，在PC端浏览器里面试了一下，运行流畅，没有遇到什么问题，但是放在手机浏览器里面打开，就跟没设置autoplay是一样的。</p>
+<h3 id="监听canplay"><a href="#监听canplay" class="headerlink" title="监听canplay"></a>监听canplay</h3><p>那不行的话，我在页面加载完成的时候，监听video的canplay，然后执行play()，应该可以运行了吧？然而放到手机里一看，还是不行。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;video id=&quot;video&quot; src=&quot;video.mp4&quot; controls&gt;&lt;/video&gt;</span><br><span class="line">var video = document.querySelector(&apos;#video&apos;);</span><br><span class="line">video.addEventListener(&apos;canplay&apos;, function () &#123;</span><br><span class="line">   video.play();</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="3、思考"><a href="#3、思考" class="headerlink" title="3、思考"></a>3、思考</h2><p>问题来了，加autoplay不行，可以理解，可能手机浏览器不支持这个属性吧，但是我监听视频加载完成，手动去play()，这是程序常规方法，为什么也不行？<br>我尝试在监听回调里面加了个alert,发现没有弹出框。<br>所以我很长一段时间认为，手机浏览器无法自动播放视频，是因为内存大小的限制，导致无法监听video的加载完成。</p>
+<h2 id="4、解决方案"><a href="#4、解决方案" class="headerlink" title="4、解决方案"></a>4、解决方案</h2><h3 id="方案1-使用弹框"><a href="#方案1-使用弹框" class="headerlink" title="方案1 使用弹框"></a>方案1 使用弹框</h3><p>昨天在segment上游荡，发现了原来现在的手机浏览器是不允许网页中视频自动播放的，只有与用户进行了一次交互动作，才可以播放视频。（音频同理，这里就不重复提）<br>我尝试了一下，在页面上加一个弹框，用户点击了弹框之后(相当于一次交互完成)，开始播放视频，发现是可以播放的，部分代码如下。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;meta name=&quot;viewport&quot;</span><br><span class="line">        content=&quot;initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, width=device-width&quot;&gt;</span><br><span class="line">  &lt;title&gt;视频自动播放&lt;/title&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">    html, body &#123;</span><br><span class="line">      width: 100%;</span><br><span class="line">      height: 100%;</span><br><span class="line">    &#125;</span><br><span class="line">    .video-container &#123;</span><br><span class="line">      width: 300px;</span><br><span class="line">      height: 600px;</span><br><span class="line">      display: flex;</span><br><span class="line">      flex-direction: column;</span><br><span class="line">      justify-content: center;</span><br><span class="line">      align-items: center;</span><br><span class="line">      overflow: hidden;</span><br><span class="line">      margin: 0 auto;</span><br><span class="line">    &#125;</span><br><span class="line">    #video &#123;</span><br><span class="line">      display: block;</span><br><span class="line">      width: 100%;</span><br><span class="line">    &#125;</span><br><span class="line">    #mask &#123;</span><br><span class="line">      width: 100%;</span><br><span class="line">      height: 100%;</span><br><span class="line">      background: rgba(0, 0, 0, 0.83);</span><br><span class="line">      position: absolute;</span><br><span class="line">      top: 0;</span><br><span class="line">      left: 0;</span><br><span class="line">      z-index: 2;</span><br><span class="line">      display: flex;</span><br><span class="line">      flex-direction: row;</span><br><span class="line">      justify-content: center;</span><br><span class="line">      align-items: center;</span><br><span class="line">    &#125;</span><br><span class="line">    .pop-container &#123;</span><br><span class="line">      width: 250px;</span><br><span class="line">      height: 200px;</span><br><span class="line">      background: white;</span><br><span class="line">      border-radius: 5px;</span><br><span class="line">      display: flex;</span><br><span class="line">      flex-direction: column;</span><br><span class="line">      align-items: center;</span><br><span class="line">      justify-content: center;</span><br><span class="line">    &#125;</span><br><span class="line">    button &#123;</span><br><span class="line">      width: 50px;</span><br><span class="line">      height: 30px;</span><br><span class="line">      border-radius: 4px;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;video-container&quot;&gt;</span><br><span class="line">  &lt;video id=&quot;video&quot; src=&quot;video.mp4&quot;&gt;&lt;/video&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;mask&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;pop-container&quot;&gt;</span><br><span class="line">    &lt;p&gt;页面内有自动播放视频 请注意流量&lt;/p&gt;</span><br><span class="line">    &lt;button onclick=&quot;playVideo()&quot;&gt;我知道了&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  function playVideo() &#123;</span><br><span class="line">    document.getElementById(&apos;mask&apos;).style.display = &apos;none&apos;;</span><br><span class="line">    var video = document.querySelector(&apos;#video&apos;);</span><br><span class="line">    video.play();</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<p>所以解决视频自动播放的一般做法是，在页面加载的时候弹框与用户产生交互，然后才能开始自动播放(如此看来，手机浏览器是真的很重视用户的流量了。）</p>
+<h3 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h3><p>按照上面的方法，只要想要在手机端页面中实现 进入页面，视频立即自动播放，就必须要借助一个额外的动作去引导与用户发生一次交互，那岂不是很丑，有没有办法是可以不借助弹框呢？答案是 有的。</p>
+<h3 id="方案2-使用jsmpeg-js"><a href="#方案2-使用jsmpeg-js" class="headerlink" title="方案2 使用jsmpeg.js"></a>方案2 使用jsmpeg.js</h3><p>jsmpeg是一款视频解码器，具体怎么用，可以百度相关文档，实话说我对此也不熟悉，第一次听见的时候是听说jsmpeg可以实现网页端的视频直播功能，这一次用来解决视频自动播放的需求也是借鉴别人的想法。<br>关键代码如下：（前提：项目中已经引入了jsmpeg.min.js）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;canvas id=&quot;canvas&quot; height=&quot;750&quot; width=&quot;750&quot;&gt;&lt;/canvas&gt;</span><br><span class="line"></span><br><span class="line">页面加载完成的时候执行下面的js代码：</span><br><span class="line">var canvas = document.querySelector(&apos;#canvas&apos;);</span><br><span class="line">// 注意这里需要将video.mp4转换成ts格式的文件 才能生效</span><br><span class="line">var player = new JSMpeg.Player(&apos;video.ts&apos;, &#123; canvas: canvas, loop: false, autoplay: false, audio: true &#125;);</span><br><span class="line">player.audioOut.unlock(this.onUnlocked);</span><br><span class="line">player.play();</span><br><span class="line"></span><br><span class="line">//  onUnlocked方法</span><br><span class="line">function onUnlocked() &#123;</span><br><span class="line">    player.volume = 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样即使不跟用户产生交互 视频也能自动播放了，<br><strong><em>注意点</em></strong><br>1.demo必须放在服务器上面跑才能正常加载ts文件，如果是在本地的话，不能直接拖进浏览器运行，需要起个本地服务器<br>2.ts文件编码方式必须为MPEG编码，考虑到现在先进的ts编码方式是H.264了，之前用H.264编码的ts发现播放不了<br><strong><em>存在的问题</em></strong><br>1.这样播出的视频是没有声音的<br>附参考链接：<a href="https://www.cnblogs.com/luoeeyang/p/7524824.html" target="_blank" rel="noopener">微信Android自动播放视频（可交互，设置层级，无控制条，非X5）ffmpeg,jsmpeg.js,.ts视频</a></p>
+<h2 id="5、补充"><a href="#5、补充" class="headerlink" title="5、补充"></a>5、补充</h2><p>1.虽然最后不管通过什么方法，算是实现了视频自动播放的需求，但是在真正播放的示例中，你会发现，使用video标签的时候，虽然设置了视频的宽高，但是不起作用，所以需要在video中使用下面的属性</p>
+<p><video id="video" src="" controls webkit-playsinline="webkit-playsinline" playsinline=""></video><br>这样就可以在固定区域播放视频了。<br>2.借助方案1的思路，其实可以实现用户上传视频时的预览<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;file&quot; id=&quot;filepicker&quot; accept=&quot;video/mp4&quot; onchange=&quot;chooseVideoInput()&quot;&gt;</span><br><span class="line">&lt;div class=&quot;video-container&quot;&gt;</span><br><span class="line">  &lt;video id=&quot;video&quot; src=&quot;&quot; controls webkit-playsinline=&quot;webkit-playsinline&quot; playsinline&gt;&lt;/video&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  function chooseVideoInput() &#123;</span><br><span class="line">    var files = document.getElementById(&apos;filepicker&apos;).files[0];</span><br><span class="line">    var video = document.getElementById(&apos;video&apos;);</span><br><span class="line">    // 注意下面3行代码</span><br><span class="line">    var url = URL.createObjectURL(files);</span><br><span class="line">    video.src = url;</span><br><span class="line">    video.play();</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>3.将mp4转换成jsmpeg可播放的ts文件的方法<br>mac os下安装homebrew,之后使用brew install jsmpeg，运行下面命令：ffmpeg -i in.mp4 -f mpegts -codec:v mpeg1video -codec:a mp2 -b 0 out.ts (其中in.mp4和out.ts填写原视频的路径以及转出ts的路径)，亲测有效</p>
+<h2 id="6、总结"><a href="#6、总结" class="headerlink" title="6、总结"></a>6、总结</h2><p>其实关于浏览器video的问题困扰了我很久，昨日在segment上浏览到“chrome66 禁止自动播放后，有什么比较好的方法实现audio的自动播放吗”这样一个提问的时候，进去看到回答，突然想起video是不是也是一样的情况，今天看了下，果然是类似的，解了很久的疑问，所以勉励自己一定要善于发现并举一反三。<br>上面提到的不论是解决方案或者说补充的，大概能解决一大半手机浏览器视频相关的问题，剩下的问题有机会再补充。</p>
+<p>参考链接：<br><a href="https://segmentfault.com/q/1010000016921847?_ea=4999257" target="_blank" rel="noopener">chrome66 禁止自动播放后，有什么比较好的方法实现audio的自动播放吗</a><br><a href="https://www.cnblogs.com/luoeeyang/p/7524824.html" target="_blank" rel="noopener">微信Android自动播放视频（可交互，设置层级，无控制条，非X5）ffmpeg,jsmpeg.js,.ts视频</a><br><a href="https://blog.csdn.net/nxjbill/article/details/77005870" target="_blank" rel="noopener">mac osx 下 homebrew安装</a><br><a href="https://blog.csdn.net/renfujiang/article/details/54579881" target="_blank" rel="noopener">mac 系统安装使用 ffmpeg</a><br><a href="https://www.cnblogs.com/zhusheng2008/p/5529439.html" target="_blank" rel="noopener">HTML5音视频播放(Video,Audio)和常见的坑处理</a><br><a href="https://segmentfault.com/a/1190000014096837" target="_blank" rel="noopener">video在微信和QQ浏览器中不全屏播放解决</a></p>
 
       
     </div>
@@ -402,8 +411,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/12/测试文章/" rel="next" title="测试文章">
-                <i class="fa fa-chevron-left"></i> 测试文章
+              <a href="/2019/03/06/H5页面实现下载文件（apk、txt等）的三种方式/" rel="next" title="H5页面实现下载文件（apk、txt等）的三种方式">
+                <i class="fa fa-chevron-left"></i> H5页面实现下载文件（apk、txt等）的三种方式
               </a>
             
           </div>
@@ -411,10 +420,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/04/H5-Video-使用网络地址时获取其大小和第一帧图片/" rel="prev" title="H5 Video 使用网络地址时获取其大小和第一帧图片">
-                H5 Video 使用网络地址时获取其大小和第一帧图片 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -571,7 +576,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#图片跨域问题的一般解决方法"><span class="nav-number">1.</span> <span class="nav-text">图片跨域问题的一般解决方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微信图片的问题"><span class="nav-number">2.</span> <span class="nav-text">微信图片的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他的解法"><span class="nav-number">3.</span> <span class="nav-text">其他的解法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、问题的提出"><span class="nav-number">1.</span> <span class="nav-text">1、问题的提出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、尝试解决"><span class="nav-number">2.</span> <span class="nav-text">2、尝试解决</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#加autoplay"><span class="nav-number">2.1.</span> <span class="nav-text">加autoplay</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#监听canplay"><span class="nav-number">2.2.</span> <span class="nav-text">监听canplay</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、思考"><span class="nav-number">3.</span> <span class="nav-text">3、思考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、解决方案"><span class="nav-number">4.</span> <span class="nav-text">4、解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方案1-使用弹框"><span class="nav-number">4.1.</span> <span class="nav-text">方案1 使用弹框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存在的问题"><span class="nav-number">4.2.</span> <span class="nav-text">存在的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方案2-使用jsmpeg-js"><span class="nav-number">4.3.</span> <span class="nav-text">方案2 使用jsmpeg.js</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、补充"><span class="nav-number">5.</span> <span class="nav-text">5、补充</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、总结"><span class="nav-number">6.</span> <span class="nav-text">6、总结</span></a></li></ol></div>
             
 
           </div>
@@ -754,9 +759,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://vera1128.github.io/2019/03/04/canvas图片绘制跨域问题解决方案黑科技版/';
-          this.page.identifier = '2019/03/04/canvas图片绘制跨域问题解决方案黑科技版/';
-          this.page.title = 'canvas图片绘制跨域问题解决方案黑科技版';
+          this.page.url = 'https://vera1128.github.io/2019/03/06/手机浏览器自动播放视频video（设置autplay无效）的解决方案/';
+          this.page.identifier = '2019/03/06/手机浏览器自动播放视频video（设置autplay无效）的解决方案/';
+          this.page.title = '手机浏览器自动播放视频video（设置autplay无效）的解决方案';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://https-vera1128-github-io.disqus.com/embed.js';
