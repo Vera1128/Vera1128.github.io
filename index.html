@@ -274,6 +274,168 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://vera1128.github.io/2019/03/06/H5页面实现下载文件（apk、txt等）的三种方式/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xuyangyang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar1.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="许杨杨的个人网站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/06/H5页面实现下载文件（apk、txt等）的三种方式/" itemprop="url">H5页面实现下载文件（apk、txt等）的三种方式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-06T17:56:46+08:00">
+                2019-03-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术分享/" itemprop="url" rel="index">
+                    <span itemprop="name">技术分享</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/06/H5页面实现下载文件（apk、txt等）的三种方式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/03/06/H5页面实现下载文件（apk、txt等）的三种方式/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="需求描述"><a href="#需求描述" class="headerlink" title="需求描述"></a>需求描述</h2><p>接到的原始需求是这样的，有一个H5页面，页面中有个“点击下载”的按钮，点击之后，完成下载特定的apk。<br>大概是下面这样的👇：<br><img src="/img/H5页面实现下载文件（apk、txt等）的三种方式/1.png"></p>
+<h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><p>接到需求的时候我偷乐了一下，这个H5页面最大的优点是不在微信中使用（微信好坑，各种限制，基本上从微信浏览器里面实现直接下载apk是不太可能的），如果是在平常的浏览器的话，就简单多了。</p>
+<h2 id="功能实现"><a href="#功能实现" class="headerlink" title="功能实现"></a>功能实现</h2><p>于是我想到了第一种，点击下载按钮的时候改变location.href。</p>
+<h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 我随便找了个apk的下载链接举个例子</span><br><span class="line">window.location.href = &apos;http://imtt.dd.qq.com/16891/26747DD8B125A8479AD0C9D22CA47BC9.apk?fsname=com.snda.wifilocating_4.2.91_3211.apk&amp;csr=1bbd&apos;;</span><br></pre></td></tr></table></figure>
+<p>拿在浏览器里面试了下，多个安卓机型都可以走通，然后我美滋滋得交付了任务，收拾收拾东西回家。<br>然后…………<br><img src="/img/H5页面实现下载文件（apk、txt等）的三种方式/2.png"><br>截图中所说的空白页是因为我改变href为apk的下载链接，网页打开的时候会停留在一个空白页，然后一般手机的状态栏上会出现下载apk的进度条。<br>既然不想出现空白页面的话，那不直接打开一个页面而改成在当前页打开就可以了。<br>这时候想到iframe，借助iframe可以在原页面打开一个页面。</p>
+<h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>关键代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var src = &apos;http://imtt.dd.qq.com/16891/26747DD8B125A8479AD0C9D22CA47BC9.apk?fsname=com.snda.wifilocating_4.2.91_3211.apk&amp;csr=1bbd&apos;;</span><br><span class="line">var iframe = document.createElement(&apos;iframe&apos;);</span><br><span class="line">iframe.style.display = &apos;none&apos;;</span><br><span class="line">iframe.src = &quot;javascript: &apos;&lt;script&gt;location.href=\&quot;&quot; + src + &quot;\&quot;&lt;\/script&gt;&apos;&quot;;</span><br><span class="line">document.getElementsByTagName(&apos;body&apos;)[0].appendChild(iframe);</span><br></pre></td></tr></table></figure></p>
+<p>使用iframe的话，既可以实现下载，又可以不重新打开页面，并且，对原页面的布局不会产生任何影响，最后我也是采取这种方案的。</p>
+<h3 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h3><p>第三种方法是偶然学到的，既然使用iframe可以，那使用form一定也是可以的，form的action也可以发请求。<br>于是改写了下第二种方法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var src = &apos;http://imtt.dd.qq.com/16891/26747DD8B125A8479AD0C9D22CA47BC9.apk?fsname=com.snda.wifilocating_4.2.91_3211.apk&amp;csr=1bbd&apos;;</span><br><span class="line">var form = document.createElement(&apos;form&apos;);</span><br><span class="line">form.action = src;</span><br><span class="line">document.getElementsByTagName(&apos;body&apos;)[0].appendChild(form);</span><br><span class="line">form.submit();</span><br></pre></td></tr></table></figure></p>
+<p>以上的代码也可以实现下载apk的需求。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>其实第二和第三种方法是扩展发挥了iframe和form的用法，单独来看，我们知道iframe可以在父页面里嵌套子页面，知道form的action可以发请求或者跳转页面，这是很常见的功能，但是不知道它们会被用在下载文件这个需求上，且产生的效果非常好。可见知识还是要融会贯通，举一反三的。<br>写这篇的时候我去查了下iframe，原来ajax等技术未出现的时候，有段时间业内常用的长轮询的方法竟然就是借助的iframe，有兴趣的也可以研究一下。</p>
+<p><strong>注：</strong><br>此文于2018-06-20发表于技术专栏<em><code>LetCodeFly</code></em>，参考链接：<a href="https://segmentfault.com/a/1190000015681014" target="_blank" rel="noopener">H5页面实现下载文件（apk、txt等）的三种方式</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://vera1128.github.io/2019/03/05/页面快速定位到指定位置的几个方法/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1223,7 +1385,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
